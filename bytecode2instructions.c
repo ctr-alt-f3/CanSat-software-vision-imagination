@@ -47,7 +47,8 @@ void interpret() {
     regvs[reg1] = regvs[reg2] / regvs[reg3];
     break;
   case PRINT_OP:
-    printf("your register has value of: %d\n", regvs[reg1]);
+    printf("your register has value of: %lld\n",
+           regvs[reg1]); // register = value of sensor, etc.
     break;
   case LOADI_OP:
     //    reg0 = reg2; // reg is now functioning as imm value
@@ -76,7 +77,7 @@ int main() {
   memset(regvs, 0, sizeof(regvs));
   __int128_t bytecode[] = {
       // put here your code;
-      0x7000,
+      0x0000,
   };
   for (int i = 0; i < sizeof(bytecode) / sizeof(bytecode[0]); i++) {
     decode(&bytecode[i]);
