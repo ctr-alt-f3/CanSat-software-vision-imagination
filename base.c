@@ -8,10 +8,18 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
-//
-char sendstruct() {
-  // this code will send "data" struct (including temperature etc.)
+char sendInstruction(__int128_t instruction) {
+  // this will have an instruction - it will use opcodes, as previous one (this
+  // idea saves a lot of data to send)
 
+  return 0;
+}
+/*char senddata() {
+  return 0;
+}*/ //this would be useless so we use
+char sendHASL /*Height Above Sea Level*/ (/*GPS coordinates*/) {
+  // this will get GPS coordinates, and find in database or google earth the
+  // height above sea level of ground in that place
   return 0;
 }
 struct data {
@@ -29,5 +37,5 @@ int main() {
 };
 /*TODO
  * data will be sent and parsed as this struct
- *
+ * all comments are actually todo's
  */
