@@ -9,13 +9,19 @@
 #include <sys/socket.h>
 #include <unistd.h>
 //
+char sendstruct() {
+  // this code will send "data" struct (including temperature etc.)
+
+  return 0;
+}
 struct data {
   int temperature;
   int pressure;    // will be transformed to height above sea level
   int latitude;    // geographical latitude
   int geoaltitude; // geographical altitude
-} data;
+} d1;
 // data in the same order as in CS.c
+
 int main() {
 
   ///
