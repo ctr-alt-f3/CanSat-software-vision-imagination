@@ -3,15 +3,16 @@
 #include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h>*/
 #include <sys/socket.h>
 #include <unistd.h>
 
 /*-------------------------------------------------------------------------------*/
-// multiple functions, because i don't need to type magic numbers individually
-/*--------------------------------------------------------------------------------*/
+/*  multiple functions, because i don't need to type magic numbers individually
+ */
+/*-------------------------------------------------------------------------------*/
 
 unsigned short HASL; // height above sea level
 /*char sendInstruction(__int128_t instruction) {
@@ -24,7 +25,7 @@ char senddata() {
   // send struct with parameters/data (temperature etc.)
   return 0;
 }
-float GPS[1]; // x and y
+float GPS[1]; // x and y (idk, if float is enough)
 char recvdata() {
   // this will be much harder
   // firstly i have to get this data, parse it (by magic number), and send rest
@@ -51,7 +52,7 @@ int main() {
   return 0;
 };
 /*TODO:
- *everything tbh
+ *everything, tbh
  *
  *
  */
