@@ -14,6 +14,10 @@ char sendInstruction(__int128_t instruction) {
 
   return 0;
 }
+struct GPS {
+  float x;
+  float y;
+} gps;
 /*char senddata() {
   return 0;
 }*/ //this would be useless so we use
@@ -31,8 +35,12 @@ struct data {
 // data in the same order as in CS.c
 
 int main() {
+  // allocating data
+  //
+  // main loop
+  // loop:
 
-  ///
+  // loop;
   return 0;
 };
 /*TODO
