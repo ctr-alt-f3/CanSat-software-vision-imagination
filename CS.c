@@ -8,6 +8,11 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+
+/*-------------------------------------------------------------------------------*/
+// multiple functions, because i don't need to type magic numbers individually
+/*--------------------------------------------------------------------------------*/
+
 unsigned short HASL; // height above sea level
 /*char sendInstruction(__int128_t instruction) {
   // this will have an instruction - it will use opcodes, as previous one (this
@@ -19,15 +24,17 @@ char senddata() {
   // send struct with parameters/data (temperature etc.)
   return 0;
 }
+float GPS[1]; // x and y
 char recvdata() {
   // this will be much harder
   // firstly i have to get this data, parse it (by magic number), and send rest
   // of this to otherfuction function
   return 0;
 }
+char sendGPS() { return 0; }
 /*char readdata(){
 }*/ // this would be useless for CS
-char getHASL() {
+char recvHASL() {
   // this would get this, and put this in variable HASL;
   return 0;
 }
