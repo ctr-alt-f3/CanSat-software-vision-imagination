@@ -36,26 +36,19 @@ OP_CHANGE_RADIO_STATS = 7
 };
 
 unsigned short HASL; // height above sea level
-/*char sendInstruction(__int128_t instruction) {
-  // this will have an instruction - it will use opcodes, as previous one (this
-  // idea saves a lot of data to send)
 
-  return 0;
-}*/ //this would be probably useless, but idk
 char senddata() {
   // send struct with parameters/data (temperature etc.)
   return 0;
 }
 float GPS[1]; // x and y (idk, if float is enough)
 char recvdata() {
-  // this will be much harder
+  // this will be very hard
   // firstly i have to get this data, parse it (by magic number), and send rest
-  // of this to otherfuction function
+  // of this to other function, that will handle it
   return 0;
 }
 char sendGPS() { return 0; }
-/*char readdata(){
-}*/ // this would be useless for CS
 char recvHASL() {
   // this would get this, and put this in variable HASL;
   return 0;
