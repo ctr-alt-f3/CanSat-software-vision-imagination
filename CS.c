@@ -1,5 +1,6 @@
 // THIS IS PROTOTYPE CODE OF CANSAT - PROBABLY WILL CHANGE 1000 TIMES, THIS IS
 // ONLY PROTOTYPE
+#define SUCCESS_EXIT 0
 #include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -49,7 +50,7 @@ struct data {
 int main() {
 
   ///
-  return 0;
+  return SUCCESS_EXIT;
 };
 /*TODO:
  *everything, tbh
