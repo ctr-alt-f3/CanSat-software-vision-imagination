@@ -1,5 +1,6 @@
 // THIS IS PROTOTYPE CODE OF GROUND STATION - PROBABLY WILL CHANGE 1000 TIMES,
 // THIS IS ONLY PROTOTYPE
+#define SUCCESS_EXIT 0
 #include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -41,7 +42,7 @@ int main() {
   // loop:
 
   // loop;
-  return 0;
+  return SUCCESS_EXIT;
 };
 /*TODO
  * data will be sent and parsed as this struct
