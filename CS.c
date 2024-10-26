@@ -11,12 +11,12 @@
 #include <unistd.h>
 
 /*-------------------------------------------------------------------------------*/
-/*  multiple functions, because i don't need to type magic numbers individually
- */
+/*  multiple functions, because i don't need to type magic numbers individually  */
 /*-------------------------------------------------------------------------------*/
 
 enum instructions{
 //all opcodes for sendInstruction function will be here
+//TODO:instructions are in bad order, 
 OP_SEND_PHOTO = 2,   //will send the photo from camera
 OP_SEND_GPS = 3,     //will send GPS coordinates
 OP_DEC_FREQ_OF_DATA_SENDING = 4,  //will decrease frequency of sending data (for example when on ground)
