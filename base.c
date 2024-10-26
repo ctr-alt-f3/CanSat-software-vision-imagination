@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h> //all those libraries are useless, but first i will write this, than i will comment them out
 #include <string.h>
-#include <sys/socket.h>
+#include <sys/socket.h> //won't be used for radio communication, but before i do this, i will propably simulate this by network
 #include <unistd.h>
 enum instructions{
 //all opcodes for sendInstruction function will be here - TODO
