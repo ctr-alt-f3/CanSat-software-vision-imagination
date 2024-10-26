@@ -1,9 +1,9 @@
 // THIS IS PROTOTYPE CODE OF GROUND STATION - PROBABLY WILL CHANGE 1000 TIMES,
 // THIS IS ONLY PROTOTYPE
 #define SUCCESS_EXIT 0
-#define RADIO_FREQ 
-#define RADIO_POWER
-#define RADIO_BANDWITH
+#define RADIO_FREQ ?
+#define RADIO_POWER ?
+#define RADIO_BANDWITH ?
 #include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>

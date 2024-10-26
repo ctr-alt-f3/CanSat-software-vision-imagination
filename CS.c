@@ -71,10 +71,8 @@ INSTRUCTION - OP_* - number
 ARG 1-3 - specyfic for instructions. ARG2 and ARG3 will sometimes function as imm values (in some cases,
 like OP_CHANGE_RADIO_STATS ARG1 too)
 
-CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to communication) will occur
+CHKSUM - simple checksum of each opcode, so no accidental changes (because of communication) will occur
    
-
-
 
 
 
