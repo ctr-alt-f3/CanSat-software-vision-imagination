@@ -38,7 +38,7 @@ OP_RESEND_LAST_INSTRUCTION = 10 //when data transferring isn't ideal, and CHKSUM
 
 char sendInstruction(__int64_t instruction) { /*128 or 64???*/
 /*
- instruction will be made like on this table	
+	 instruction will be made like on this table	
 /---------------------------------------------------------------------\
 |NAME  |  MAGIC NUMBER 	| INSTRUCTION | ARG1 |  ARG2 |  ARG3 | CHKSUM |
 | -----|----------------|-------------|------|-------|-------|--------|	
@@ -46,6 +46,7 @@ char sendInstruction(__int64_t instruction) { /*128 or 64???*/
 |------|----------------|-------------|------|-------|-------|--------|
 |SIZE  |        1	|     1       |  1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes
 \----------------------------------------------------------------------/
+         -------------------------------------------
 
 MAGIC NUMBER - thanks to this, we know that it's an instruction, not data like GPS, or structure
 

@@ -54,14 +54,15 @@ char recvInstructions() {
    
    
    
-    instruction will be made like on this table	
+	    instruction will be made like on this table	
 -----------------------------------------------------------------------	
 NAME  |  MAGIC NUMBER 	| INSTRUCTION | ARG1 |  ARG2 |  ARG3 | CHKSUM |
  -----|-----------------|-------------|------|-------|-------|--------|	
 TYPE  |      CHAR	|    CHAR     | CHAR | SHORT | SHORT |  CHAR  |
 ------|-----------------|-------------|------|-------|-------|--------|
 SIZE  |        1	|     1       |  1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes
---------------------------------]--------------------------------------
+-----------------------------------------------------------------------
+	    -------------------------------------------
 
 MAGIC NUMBER - thanks to this, we know that it's an instruction, not data like GPS, or structure
 
