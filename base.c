@@ -1,6 +1,9 @@
 // THIS IS PROTOTYPE CODE OF GROUND STATION - PROBABLY WILL CHANGE 1000 TIMES,
 // THIS IS ONLY PROTOTYPE
 #define SUCCESS_EXIT 0
+#define RADIO_FREQ 
+#define RADIO_POWER
+#define RADIO_BANDWITH
 #include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -25,18 +28,37 @@ OP_CUT_THE_POWER_ALL = 0, //WILL COMPLETLY POWER OFF THE CANSAT - idk if it's go
 OP_INC_FREQ_OF_DATA_SENDING = 5, //normally 1 per second
 OP_SEND_BATTERY_STATS = 6,
 //DANGEROUS
-OP_CHANGE_RADIO_STATS = 7,// power/channel 
-//
-OP_STOP_ADDIONAL_MISSION = 8 //DANGEROUS, NEVER USE THIS
-
+OP_CHANGE_RADIO_STATS = 7,// power/freq/bandwith
+OP_STOP_ADDIONAL_MISSION = 8, //DANGEROUS, NEVER USE THIS
+OP_POWER_BUTTON_LED_CHANGE = 9,
+OP_RESEND_LAST_INSTRUCTION = 10 //when data transferring isn't ideal, and CHKSUM is invalid
 };
 
 
 
-char sendInstruction(__int128_t instruction) {
-  // this will have an instruction - it will use opcodes, as previous one (this
-  // idea saves a lot of data to send)
+char sendInstruction(__int64_t instruction) { /*128 or 64???*/
+/*
+ instruction will be made like on this table	
+/---------------------------------------------------------------------\
+|NAME  |  MAGIC NUMBER 	| INSTRUCTION | ARG1 |  ARG2 |  ARG3 | CHKSUM |
+| -----|----------------|-------------|------|-------|-------|--------|	
+|TYPE  |      CHAR	|    CHAR     | CHAR | SHORT | SHORT |  CHAR  |
+|------|----------------|-------------|------|-------|-------|--------|
+|SIZE  |        1	|     1       |  1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes
+\----------------------------------------------------------------------/
 
+MAGIC NUMBER - thanks to this, we know that it's an instruction, not data like GPS, or structure
+
+INSTRUCTION - OP_* - number
+
+ARG 1-3 - specyfic for instructions. ARG2 and ARG3 will sometimes function as imm values (in some cases, 
+like OP_CHANGE_RADIO_STATS ARG1 too)
+
+CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to communication) will occur
+
+*/
+	// this will have an instruction - it will use opcodes, as previous one (this
+  // idea saves a lot of data to send)
   return 0;
 }
 

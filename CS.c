@@ -13,7 +13,9 @@
 /*-------------------------------------------------------------------------------*/
 /*  multiple functions, because i don't need to type magic numbers individually  */
 /*-------------------------------------------------------------------------------*/
-
+#define RADIO_FREQ ?
+#define RADIO_POWER ? 
+#define RADIO_BANDWITH ?
 enum instructions{
 //all opcodes for sendInstruction function will be here
 //TODO:instructions are in bad order, 
@@ -42,10 +44,40 @@ char senddata() {
   return 0;
 }
 float GPS[1]; // x and y (idk, if float is enough)
-char recvdata() {
+char recvInstructions() {
   // this will be very hard
   // firstly i have to get this data, parse it (by magic number), and send rest
   // of this to other function, that will handle it
+  //
+  //
+  /*
+   
+   
+   
+    instruction will be made like on this table	
+-----------------------------------------------------------------------	
+NAME  |  MAGIC NUMBER 	| INSTRUCTION | ARG1 |  ARG2 |  ARG3 | CHKSUM |
+ -----|-----------------|-------------|------|-------|-------|--------|	
+TYPE  |      CHAR	|    CHAR     | CHAR | SHORT | SHORT |  CHAR  |
+------|-----------------|-------------|------|-------|-------|--------|
+SIZE  |        1	|     1       |  1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes
+--------------------------------]--------------------------------------
+
+MAGIC NUMBER - thanks to this, we know that it's an instruction, not data like GPS, or structure
+
+INSTRUCTION - OP_* - number
+
+ARG 1-3 - specyfic for instructions. ARG2 and ARG3 will sometimes function as imm values (in some cases,
+like OP_CHANGE_RADIO_STATS ARG1 too)
+
+CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to communication) will occur
+   
+
+
+
+
+
+   */
   return 0;
 }
 char sendGPS() { return 0; }
