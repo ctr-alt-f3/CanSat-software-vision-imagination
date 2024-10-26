@@ -10,7 +10,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 enum instructions{
-//all opcodes for sendInstruction function will be here
+//all opcodes for sendInstruction function will be here - TODO
 OP_SEND_PHOTO = 2,   //will send the photo from camera
 OP_SEND_GPS = 3,     //will send GPS coordinates
 OP_DEC_FREQ_OF_DATA_SENDING = 4,  //will decrease frequency of sending data (for example when on ground)
@@ -27,7 +27,7 @@ OP_SEND_BATTERY_STATS = 6,
 //DANGEROUS
 OP_CHANGE_RADIO_STATS = 7,// power/channel 
 //
-OP_STOP_ADDIONAL_MISSION = 8, //DANGEROUS, NEVER USE THIS
+OP_STOP_ADDIONAL_MISSION = 8 //DANGEROUS, NEVER USE THIS
 
 };
 
@@ -44,9 +44,6 @@ struct GPS {
   float x;
   float y;
 } gps;
-/*char senddata() {
-  return 0;
-}*/ //this would be useless so we use
 char sendHASL /*Height Above Sea Level*/ (/*GPS coordinates*/) {
   // this will get GPS coordinates, and find in database or google earth the
   // height above sea level of ground in that place
@@ -67,7 +64,8 @@ int main() {
   // loop:
 
   // loop;
-  return SUCCESS_EXIT;
+//freeing heap memory and other weird stuff
+      	return SUCCESS_EXIT;
 };
 /*TODO
  * data will be sent and parsed as this struct
