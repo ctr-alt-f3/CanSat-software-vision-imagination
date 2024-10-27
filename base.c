@@ -4,6 +4,7 @@
 #define RADIO_FREQ ?
 #define RADIO_POWER ?
 #define RADIO_BANDWITH ?
+#include "OPCODES.h"
 #include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>
@@ -12,7 +13,7 @@
 #include <string.h>
 #include <sys/socket.h> //won't be used for radio communication, but before i do this, i will propably simulate this by network
 #include <unistd.h>
-enum instructions{
+/*enum instructions{
 //all opcodes for sendInstruction function will be here - TODO
 OP_SEND_PHOTO = 2,   //will send the photo from camera
 OP_SEND_GPS = 3,     //will send GPS coordinates
@@ -32,7 +33,7 @@ OP_CHANGE_RADIO_STATS = 7,// power/freq/bandwith
 OP_STOP_ADDIONAL_MISSION = 8, //DANGEROUS, NEVER USE THIS
 OP_POWER_BUTTON_LED_CHANGE = 9,
 OP_RESEND_LAST_INSTRUCTION = 10 //when data transferring isn't ideal, and CHKSUM is invalid
-};
+};*/
 
 
 
@@ -44,7 +45,7 @@ char sendInstruction(__int64_t instruction) { /*128 or 64???*/
 | -----|----------------|-------------|------|-------|-------|--------|	
 |TYPE  |      CHAR	|    CHAR     | CHAR | SHORT | SHORT |  CHAR  |
 |------|----------------|-------------|------|-------|-------|--------|
-|SIZE  |        1	|     1       |  1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes
+|SIZE  |        1	|     1       |  1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes 
 \----------------------------------------------------------------------/
          -------------------------------------------
 

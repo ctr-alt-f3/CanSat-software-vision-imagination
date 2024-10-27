@@ -9,14 +9,14 @@
 #include <string.h>*/
 #include <sys/socket.h>
 #include <unistd.h>
-
+#include "OPCODES.h"
 /*-------------------------------------------------------------------------------*/
 /*  multiple functions, because i don't need to type magic numbers individually  */
 /*-------------------------------------------------------------------------------*/
 #define RADIO_FREQ ?
 #define RADIO_POWER ? 
 #define RADIO_BANDWITH ?
-enum instructions{
+/*enum instructions{
 //all opcodes for sendInstruction function will be here
 //TODO:instructions are in bad order, 
 OP_SEND_PHOTO = 2,   //will send the photo from camera
@@ -35,7 +35,7 @@ OP_SEND_BATTERY_STATS = 6,
 //DANGEROUS ACTION
 OP_CHANGE_RADIO_STATS = 7
 
-};
+};*/
 
 unsigned short HASL; // height above sea level
 

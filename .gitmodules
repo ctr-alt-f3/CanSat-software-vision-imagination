@@ -1,0 +1,3 @@
+[submodule "vimsence"]
+	path = vimsence
+	url = https://github.com/vimsence/vimsence.git
