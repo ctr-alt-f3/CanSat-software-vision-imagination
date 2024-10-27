@@ -17,7 +17,19 @@
 
 char sendInstruction(__int64_t instruction) { /*128 or 64???*/
 /*
-	 instruction will be made like on this table	
+ magic = (recved & 0xF0000000) << 56; 
+   instruction = (recved & 0x0F000000) << 48);
+   arg1 = (recved & 0x00F00000) << 40;
+   arg2 = (recved & 0x000FF000) << 32;
+   arg3 = (recved & 0x0000FF0) << 16;
+   chksum = (recved & 0x0000000F);
+*/
+
+
+
+
+	/*
+	  instruction will be made like on this table	
 /---------------------------------------------------------------------\
 |NAME  |  MAGIC NUMBER 	| INSTRUCTION | ARG1 |  ARG2 |  ARG3 | CHKSUM |
 | -----|----------------|-------------|------|-------|-------|--------|	
@@ -34,7 +46,7 @@ INSTRUCTION - OP_* - number
 ARG 1-3 - specyfic for instructions. ARG2 and ARG3 will sometimes function as imm values (in some cases, 
 like OP_CHANGE_RADIO_STATS ARG1 too)
 
-CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to communication) will occur
+CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to communication) will occur - propably will use CRC-8
 
 */
 	// this will have an instruction - it will use opcodes, as previous one (this
