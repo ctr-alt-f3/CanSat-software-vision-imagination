@@ -17,7 +17,19 @@
 #define RADIO_POWER ? 
 #define RADIO_BANDWITH ?
 unsigned short HASL; // height above sea level
-
+char recvv(){
+char* data;
+//recv data
+/* magic = (recved & 0xF0000000) << ????(TODO);
+   instruction = (recved & 0x0F000000) << ????(TODO);
+   arg1 = (recved & 0x00F00000) << ???; 
+   arg2 = (recved & 0x000FF000) << ???;
+   arg3 = (recved & 0x0000FF0) << ???;
+   chksum = (recved & 0x0000000F);
+*/
+//this will recv data, parse magic number and put that data in other function
+return SUCCESS_EXIT;
+}	
 char senddata() {
   // send struct with parameters/data (temperature etc.)
   return 0;
@@ -27,10 +39,8 @@ char recvInstructions() {
   // this will be very hard
   // firstly i have to get this data, parse it (by magic number), and send rest
   // of this to other function, that will handle it
-  //
-  //
   /*
-   
+  
    
    
 	    instruction will be made like on this table	
