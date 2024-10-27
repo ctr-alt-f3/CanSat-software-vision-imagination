@@ -16,6 +16,7 @@
 #define RADIO_FREQ ?
 #define RADIO_POWER ? 
 #define RADIO_BANDWITH ?
+uint8_t crc8(uint8_t *data, size_t len, uint8_t poly);
 unsigned short HASL; // height above sea level
 char recvv(){
 char* data;
@@ -26,6 +27,13 @@ char* data;
    arg2 = (recved & 0x000FF000) << 32;
    arg3 = (recved & 0x0000FF0) << 16;
    chksum = (recved & 0x0000000F);
+if (chksum != crc8((recved & 0xFFFFFFF0),56,POLY){
+perror("chcksum of instruction invalid");}
+while(1){
+switch(instruction){
+case OP_CUT_THE_POWER_ALL:
+//some code
+break;}}
 */
 
 //this will recv data, parse magic number and put that data in other function
@@ -91,3 +99,34 @@ int main() {
  *
  *
  */
+#include <stdio.h>
+#include <stdint.h>
+
+uint8_t crc8(uint8_t *data, size_t len, uint8_t poly) {
+  uint8_t crc = 0;
+  for (size_t i = 0; i < len; i++) {
+    crc ^= data[i];
+    for (int j = 0; j < 8; j++) {
+      if (crc & 0x80) {
+        crc = (crc << 1) ^ poly;
+      } else {
+        crc <<= 1;
+      }
+    }
+  }
+  return crc;
+}
+uint8_t crc8(uint8_t *data, size_t len, uint8_t poly) {
+  uint8_t crc = 0;
+  for (size_t i = 0; i < len; i++) {
+    crc ^= data[i];
+    for (int j = 0; j < 8; j++) {
+      if (crc & 0x80) {
+        crc = (crc << 1) ^ poly;
+      } else {
+        crc <<= 1;
+      }
+    }
+  }
+  return crc;
+}

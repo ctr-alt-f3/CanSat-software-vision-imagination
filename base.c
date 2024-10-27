@@ -1,5 +1,6 @@
 // THIS IS PROTOTYPE CODE OF GROUND STATION - PROBABLY WILL CHANGE 1000 TIMES,
 // THIS IS ONLY PROTOTYPE
+#define POLY 0x07
 #define SUCCESS_EXIT 0
 #define RADIO_FREQ ?
 #define RADIO_POWER ?
@@ -13,7 +14,7 @@
 #include <string.h>
 #include <sys/socket.h> //won't be used for radio communication, but before i do this, i will propably simulate this by network
 #include <unistd.h>
-
+uint8_t crc8(uint8_t *data, size_t len, uint8_t poly);
 
 char sendInstruction(__int64_t instruction) { /*128 or 64???*/
 /*
@@ -23,6 +24,16 @@ char sendInstruction(__int64_t instruction) { /*128 or 64???*/
    arg2 = (recved & 0x000FF000) << 32;
    arg3 = (recved & 0x0000FF0) << 16;
    chksum = (recved & 0x0000000F);
+if (chksum != crc8((recved & 0xFFFFFFF0),56,POLY){
+perror("chcksum of instruction invalid");}
+while(1){
+switch(instruction){
+case OP_CUT_THE_POWER_ALL:
+//some code
+break;
+
+
+}}
 */
 
 
@@ -85,3 +96,19 @@ int main() {
  * data will be sent and parsed as this struct
  * all comments are actually todo's
  */
+uint8_t crc8(uint8_t *data, size_t len, uint8_t poly) {
+  uint8_t crc = 0;
+  for (size_t i = 0; i < len; i++) {
+    crc ^= data[i];
+    for (int j = 0; j < 8; j++) {
+      if (crc & 0x80) {
+        crc = (crc << 1) ^ poly;
+      } else {
+        crc <<= 1;
+      }
+    }
+  }
+  return crc;
+}
+
+
