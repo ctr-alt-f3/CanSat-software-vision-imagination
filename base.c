@@ -2,7 +2,7 @@
 // THIS IS ONLY PROTOTYPE
 #define POLY 0x07
 #define SUCCESS_EXIT 0
-#define RADIO_FREQ ?
+#define RADIO_FREQ ? //TODO - read documentation
 #define RADIO_POWER ?
 #define RADIO_BANDWITH ?
 #include "OPCODES.h"
@@ -14,7 +14,39 @@
 #include <string.h>
 #include <sys/socket.h> //won't be used for radio communication, but before i do this, i will propably simulate this by network
 #include <unistd.h>
-uint8_t crc8(uint8_t *data, size_t len, uint8_t poly);
+uint8_t crc8(uint8_t *data, size_t len, uint8_t poly); //this will be used for chksums
+/*
+data - parameters like temperature pressure, etc
+GPS - gps coordinates 
+HASL - height above sea level
+instruction - based on my "Simple Pseudo Bytecode Interpreter" project - this will contain instructions - read more on OPCODES.h file
+*/
+char recvv(){
+char* data;
+//recv data
+/* magic = (recved & 0xF0000000) << 56;
+   instruction = (recved & 0x0F000000) << 48;
+   arg1 = (recved & 0x00F00000) << 40;
+   arg2 = (recved & 0x000FF000) << 32;
+   arg3 = (recved & 0x0000FF0) << 16;
+   chksum = (recved & 0x0000000F);
+if (chksum != crc8((recved & 0xFFFFFFF0),56,POLY){
+perror("chcksum of instruction invalid");
+}
+while(1){
+switch(instruction){
+case OP_CUT_THE_POWER_ALL:
+//some code
+default:
+//some code
+break;
+}
+}
+}
+*/
+//this will recv data, parse magic number and put that data in other function
+return SUCCESS_EXIT;
+}	
 
 char sendInstruction(__int64_t instruction) { /*128 or 64???*/
 /*
@@ -26,14 +58,17 @@ char sendInstruction(__int64_t instruction) { /*128 or 64???*/
    chksum = (recved & 0x0000000F);
 if (chksum != crc8((recved & 0xFFFFFFF0),56,POLY){
 perror("chcksum of instruction invalid");}
-while(1){
+//while(1){
 switch(instruction){
 case OP_CUT_THE_POWER_ALL:
 //some code
 break;
+//TODO - end case-switch //
+default:
+perror("bad OPcode specified");
 
+}//}
 
-}}
 */
 
 
@@ -41,12 +76,12 @@ break;
 
 	/*
 	  instruction will be made like on this table	
-/---------------------------------------------------------------------\
-|NAME  |  MAGIC NUMBER 	| INSTRUCTION | ARG1 |  ARG2 |  ARG3 | CHKSUM |
-| -----|----------------|-------------|------|-------|-------|--------|	
-|TYPE  |      CHAR	|    CHAR     | CHAR | SHORT | SHORT |  CHAR  |
-|------|----------------|-------------|------|-------|-------|--------|
-|SIZE  |        1	|     1       |  1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes 
+/----------------------------------------------------------------------\
+|NAME  |  MAGIC NUMBER 	| INSTRUCTION |  ARG1 |  ARG2 |  ARG3 | CHKSUM |
+| -----|----------------|-------------|-------|-------|-------|--------|	
+|TYPE  |      CHAR	|    CHAR     | UCHAR | SHORT | SHORT |  CHAR  |
+|------|----------------|-------------|-------|-------|-------|--------|
+|SIZE  |        1	|     1       |   1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes 
 \----------------------------------------------------------------------/
          -------------------------------------------
 
@@ -66,8 +101,8 @@ CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to com
 }
 
 struct GPS {
-  float x;
-  float y;
+  long long x;
+  long long y;
 } gps;
 char sendHASL /*Height Above Sea Level*/ (/*GPS coordinates*/) {
   // this will get GPS coordinates, and find in database or google earth the
@@ -87,7 +122,6 @@ int main() {
   //
   // main loop
   // loop:
-
   // loop;
 //freeing heap memory and other weird stuff
       	return SUCCESS_EXIT;
