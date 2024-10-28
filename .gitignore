@@ -82,7 +82,7 @@ dkms.conf
 # Session
 Session.vim
 Sessionx.vim
-
+vimsence
 # Temporary
 .netrwhist
 # Auto-generated tag files
