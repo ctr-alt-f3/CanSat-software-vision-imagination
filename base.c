@@ -15,23 +15,6 @@
 #include <sys/socket.h> //won't be used for radio communication, but before i do this, i will propably simulate this by network
 #include <unistd.h>
 uint8_t crc8(uint8_t *data, size_t len, uint8_t poly); //this will be used for chksums
-
-
-
-
-
-
-
-// TODO: CLEANUP OF CODE
-
-
-
-
-
-
-
-
-
 /*
 data - parameters like temperature pressure, etc
 GPS - gps coordinates 
@@ -43,14 +26,6 @@ char* data;
 //recv data
 
 /*
- *THIS PROPABLY WON'T BE USED
- *
- * magic = (recved & 0xF0000000) << 56;
-   instruction = (recved & 0x0F000000) << 48;
-   arg1 = (recved & 0x00F00000) << 40;
-   arg2 = (recved & 0x000FF000) << 32;
-   arg3 = (recved & 0x0000FF0) << 16;
-   chksum = (recved & 0x0000000F);
 if (chksum != crc8((recved & 0xFFFFFFF0),56,POLY){
 perror("chcksum of instruction invalid");
 }
@@ -72,14 +47,6 @@ return SUCCESS_EXIT;
 
 char sendInstruction(__int64_t instruction) { /*128 or 64???*/
 /*
- magic = (recved & 0xF0000000) << 56; 
-   instruction = (recved & 0x0F000000) << 48);
-   arg1 = (recved & 0x00F00000) << 40;
-   arg2 = (recved & 0x000FF000) << 32;
-   arg3 = (recved & 0x0000FF0) << 16;
-   chksum = (recved & 0x0000000F);
-if (chksum != crc8((recved & 0xFFFFFFF0),56,POLY){
-perror("chcksum of instruction invalid");}
 //while(1){
 switch(instruction){
 case OP_CUT_THE_POWER_ALL:
@@ -106,7 +73,6 @@ perror("bad OPcode specified");
 |SIZE  |        1	|     1       |   1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes 
 \----------------------------------------------------------------------/
          -------------------------------------------
-maybe i will just use structs???
 MAGIC NUMBER - thanks to this, we know that it's an instruction, not data like GPS, or structure
 
 INSTRUCTION - OP_* - number
@@ -117,8 +83,6 @@ like OP_CHANGE_RADIO_STATS ARG1 too)
 CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to communication) will occur - propably will use CRC-8
 
 */
-	// this will have an instruction - it will use opcodes, as previous one (this
-  // idea saves a lot of data to send)
   return SUCCESS_EXIT;
 }
 
@@ -165,6 +129,6 @@ uint8_t crc8(uint8_t *data, size_t len, uint8_t poly) {
     }
   }
   return crc;
-}//does it make any sense??? TODO
+}//does it make any sense (this function)??? TODO
 
 
