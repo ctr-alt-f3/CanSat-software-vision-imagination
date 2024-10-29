@@ -1,6 +1,6 @@
 // THIS IS PROTOTYPE CODE OF GROUND STATION - PROBABLY WILL CHANGE 1000 TIMES,
 // THIS IS ONLY PROTOTYPE
-#define POLY 0x07
+#define POLY 0x07 //for this case  - this is the best
 #define SUCCESS_EXIT 0
 #define RADIO_FREQ ? //TODO - read documentation
 #define RADIO_POWER ?
@@ -40,12 +40,13 @@ case OP_CUT_THE_POWER_ALL:
 default:
 //some code
 break;
-}
+} // 
 }
 }
 */
 //this will recv data, parse magic number and put that data in other function
 return SUCCESS_EXIT;
+
 }	
 
 char sendInstruction(__int64_t instruction) { /*128 or 64???*/
@@ -112,8 +113,8 @@ char sendHASL /*Height Above Sea Level*/ (/*GPS coordinates*/) {
 struct data {
   int temperature;
   int pressure;    // will be transformed to height above sea level
-  int latitude;    // geographical latitude
-  int geoaltitude; // geographical altitude
+ /* int latitude;    // geographical latitude
+  int geoaltitude; // geographical altitude*/
 } d1;
 // data in the same order as in CS.c
 
@@ -126,7 +127,7 @@ int main() {
 //freeing heap memory and other weird stuff
       	return SUCCESS_EXIT;
 };
-/*TODO
+/*TODO 
  * data will be sent and parsed as this struct
  * all comments are actually todo's
  */
@@ -143,6 +144,6 @@ uint8_t crc8(uint8_t *data, size_t len, uint8_t poly) {
     }
   }
   return crc;
-}
+}//does it make any sense??? TODO
 
 
