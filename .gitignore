@@ -1,6 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vim,c,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,c,linux
-
+.gitmodules
 ### C ###
 # Prerequisites
 *.d
