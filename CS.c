@@ -36,6 +36,23 @@ case OP_CUT_THE_POWER_ALL:
 break;}}
 */
 
+
+
+
+
+
+
+
+
+//TODO CLEANUP OF CODE
+
+
+
+
+
+
+
+
 //this will recv data, parse magic number and put that data in other function
 return SUCCESS_EXIT;
 }	

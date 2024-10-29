@@ -15,6 +15,23 @@
 #include <sys/socket.h> //won't be used for radio communication, but before i do this, i will propably simulate this by network
 #include <unistd.h>
 uint8_t crc8(uint8_t *data, size_t len, uint8_t poly); //this will be used for chksums
+
+
+
+
+
+
+
+// TODO: CLEANUP OF CODE
+
+
+
+
+
+
+
+
+
 /*
 data - parameters like temperature pressure, etc
 GPS - gps coordinates 
@@ -24,7 +41,11 @@ instruction - based on my "Simple Pseudo Bytecode Interpreter" project - this wi
 char recvv(){
 char* data;
 //recv data
-/* magic = (recved & 0xF0000000) << 56;
+
+/*
+ *THIS PROPABLY WON'T BE USED
+ *
+ * magic = (recved & 0xF0000000) << 56;
    instruction = (recved & 0x0F000000) << 48;
    arg1 = (recved & 0x00F00000) << 40;
    arg2 = (recved & 0x000FF000) << 32;
