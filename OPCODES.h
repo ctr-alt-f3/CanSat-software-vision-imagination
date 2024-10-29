@@ -19,3 +19,34 @@ OP_STOP_ADDIONAL_MISSION = 8, //DANGEROUS, NEVER USE THIS
 OP_POWER_BUTTON_LED_CHANGE = 9,
 OP_RESEND_LAST_INSTRUCTION = 10 //when data transferring isn't ideal, and CHKSUM is invalid
 };
+struct instruction{
+char magic_number;
+unsigned char instruction;
+unsigned char ARG1;
+short ARG2;
+short ARG3;
+char chksum;
+
+}
+	/*
+	  instruction will be made like on this table	
+/----------------------------------------------------------------------\
+|NAME  |  MAGIC NUMBER 	| INSTRUCTION |  ARG1 |  ARG2 |  ARG3 | CHKSUM |
+| -----|----------------|-------------|-------|-------|-------|--------|	
+|TYPE  |      CHAR	|    CHAR     | UCHAR | SHORT | SHORT |  CHAR  |
+|------|----------------|-------------|-------|-------|-------|--------|
+|SIZE  |        1	|     1       |   1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes
+\----------------------------------------------------------------------/
+         -------------------------------------------
+maybe i will just use structs???
+MAGIC NUMBER - thanks to this, we know that it's an instruction, not data like GPS, or structure
+
+INSTRUCTION - OP_* - number
+
+ARG 1-3 - specyfic for instructions. ARG2 and ARG3 will sometimes function as imm values (in some cases,
+like OP_CHANGE_RADIO_STATS ARG1 too)
+
+CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to communication) will occur - propably will use CRC-8
+
+*/
+

@@ -85,7 +85,7 @@ perror("bad OPcode specified");
 |SIZE  |        1	|     1       |   1   |   2   |   2   |   1    |  (1+1+1+2+2+1 = 8) 8 bytes 
 \----------------------------------------------------------------------/
          -------------------------------------------
-
+maybe i will just use structs???
 MAGIC NUMBER - thanks to this, we know that it's an instruction, not data like GPS, or structure
 
 INSTRUCTION - OP_* - number
