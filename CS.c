@@ -75,12 +75,15 @@ CHKSUM - simple checksum of each opcode, so no accidental changes (because of co
 
 
    */
-  return 0;
+  return SUCCESS_EXIT;
 }
-char sendGPS() { return 0; }
+char sendGPS() { 
+	return SUCCESS_EXIT; 
+}
+
 char recvHASL() {
   // this would get this, and put this in variable HASL;
-  return 0;
+  return SUCCESS_EXIT;
 }
 struct data {
   int temperature;

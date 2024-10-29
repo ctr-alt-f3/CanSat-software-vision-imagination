@@ -98,7 +98,7 @@ CHKSUM - simple checksum of each opcode, so no accidental changes (thanks to com
 */
 	// this will have an instruction - it will use opcodes, as previous one (this
   // idea saves a lot of data to send)
-  return 0;
+  return SUCCESS_EXIT;
 }
 
 struct GPS {
@@ -108,7 +108,7 @@ struct GPS {
 char sendHASL /*Height Above Sea Level*/ (/*GPS coordinates*/) {
   // this will get GPS coordinates, and find in database or google earth the
   // height above sea level of ground in that place
-  return 0;
+  return SUCCESS_EXIT;
 }
 struct data {
   int temperature;
