@@ -35,24 +35,6 @@ case OP_CUT_THE_POWER_ALL:
 //some code
 break;}}
 */
-
-
-
-
-
-
-
-
-
-//TODO CLEANUP OF CODE
-
-
-
-
-
-
-
-
 //this will recv data, parse magic number and put that data in other function
 return SUCCESS_EXIT;
 }	
@@ -62,7 +44,6 @@ char senddata() {
 }
 float GPS[1]; // x and y (idk, if float is enough)
 char recvInstructions() {
-  // this will be very hard
   // firstly i have to get this data, parse it (by magic number), and send rest
   // of this to other function, that will handle it
   /*
@@ -114,15 +95,12 @@ int main() {
   ///
   return SUCCESS_EXIT;
 };
-/*TODO:
- *everything, tbh
- *
- *
+/*
  */
 #include <stdio.h>
 #include <stdint.h>
 
-
+//TODO: test if it makes any sense
 uint8_t crc8(uint8_t *data, size_t len, uint8_t poly) {
   uint8_t crc = 0;
   for (size_t i = 0; i < len; i++) {
