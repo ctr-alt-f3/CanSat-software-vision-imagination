@@ -4,18 +4,31 @@
 #include <netinet/in.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdint.h>
+
+
 /*#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>*/
+
+
 #include <sys/socket.h>
 #include <unistd.h>
 #include "OPCODES.h"
+
+
 /*-------------------------------------------------------------------------------*/
 /*  multiple functions, because i don't need to type magic numbers individually  */
 /*-------------------------------------------------------------------------------*/
+
+
 #define RADIO_FREQ ?
 #define RADIO_POWER ? 
 #define RADIO_BANDWITH ?
+#define ERR_EXIT 2
+
+
 uint8_t crc8(uint8_t *data, size_t len, uint8_t poly);
 unsigned short HASL; // height above sea level
 char recvv(){
@@ -38,17 +51,20 @@ break;}}
 //this will recv data, parse magic number and put that data in other function
 return SUCCESS_EXIT;
 }	
+
+
 char senddata() {
   // send struct with parameters/data (temperature etc.)
   return 0;
 }
+
 float GPS[1]; // x and y (idk, if float is enough)
+
 char recvInstructions() {
   // firstly i have to get this data, parse it (by magic number), and send rest
   // of this to other function, that will handle it
   /*
-  
-   
+    
    
 	    instruction will be made like on this table	
 -----------------------------------------------------------------------	
@@ -75,21 +91,34 @@ CHKSUM - simple checksum of each opcode, so no accidental changes (because of co
    */
   return SUCCESS_EXIT;
 }
+
+
+
+
 char sendGPS() { 
 	return SUCCESS_EXIT; 
 }
+
+
 
 char recvHASL() {
   // this would get this, and put this in variable HASL;
   return SUCCESS_EXIT;
 }
+
+
+
 struct data {
   int temperature;
   int pressure;    // will be transformed to height above sea level
   int latitude;    // geographical latitude
   int geoaltitude; // geographical altitude
 } d1;
+
 // data must be in the same order as in base.c
+
+
+
 int main() {
 
   ///
@@ -97,8 +126,6 @@ int main() {
 };
 /*
  */
-#include <stdio.h>
-#include <stdint.h>
 
 //TODO: test if it makes any sense
 uint8_t crc8(uint8_t *data, size_t len, uint8_t poly) {
