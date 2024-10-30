@@ -4,4 +4,4 @@ I make software for CanSat, and here is an idea how could this work, it's a long
 
 
 
-WE LOST. THERE IS NOTHING MORE - NO CODE NO CANS NO RADIO
+WE LOST. THERE IS NOTHING MORE - NO CODE NO CANS NO RADIO - approximetly 5 hour work is uselsess now
